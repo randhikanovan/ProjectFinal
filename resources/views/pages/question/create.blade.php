@@ -14,7 +14,7 @@
                         <input type="text" name="title" id="" value="{{ old('title') }}" class="form-control">
                         
                         <label for="title">Content</label>
-                        <textarea type="text" name="content" id="" class="form-control">{{ old('content') }}</textarea>
+                        <textarea type="text" rows="10" name="content" id="ckeditor" class="ckeditor form-control">{{ old('content') }}</textarea>
                         
                         <label for="title">Tags</label>
                         <input type="text" name="tags" id="" value="{{ old('tags') }}" class="form-control">
@@ -27,3 +27,17 @@
     </div>
 </div>
 @endsection
+
+@push('script')
+<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+            .create( document.querySelector( '#ckeditor' ) )
+            .then( editor => {
+                    console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            } );
+</script>
+@endpush

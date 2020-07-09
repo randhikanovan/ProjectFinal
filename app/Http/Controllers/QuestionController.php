@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Question;
 use App\User;
 use App\Answer;
+use App\Like;
 use Alert;
 
 class QuestionController extends Controller
@@ -57,9 +58,12 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
+        
         $item = Question::findorfail($id);
+        $likes = Like::count();
         return view ('pages.question.show')->with([
             'item' => $item,
+            'likes' => $likes
         ]);
     }
 

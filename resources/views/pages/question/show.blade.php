@@ -16,8 +16,13 @@
                     <p>
                         <button class="btn btn-success btn-sm">{{ $item->tags }}</button>
                     </p>
-                    <a href="">LIKE</a>
-                    <a href="">DISLIKE</a><br>
+                    <a href=""><i class="fa fa-thumbs-up fa-lg"></i></a>
+                    <a href=""><i class="fa fa-thumbs-down fa-lg ml-5"></i></a><br>
+                    <p>
+                              
+                        Jumlah Like : {{ $likes }}
+                        
+                    </p>
                     <table class="table">
                         <thead>
                             <tr>

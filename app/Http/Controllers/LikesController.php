@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Answer;
 use App\Question;
-use Illuminate\Support\Facades\Auth;
 
-class AnswerController extends Controller
+class LikesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,9 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        
+        $likes = DB::table('likes')->count();
+
+        return view('pages.question.show')->with(['likes' => $likes]);
     }
 
     /**
@@ -26,7 +26,7 @@ class AnswerController extends Controller
      */
     public function create()
     {
-        return view('pages.answer.create');
+        //
     }
 
     /**
@@ -35,23 +35,9 @@ class AnswerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id,Request $request)
+    public function store(Request $request)
     {
-        // $q = Question::find($id);
-        // // dd($request->all());
-        // $ans = new Answer;
-        // $ans->user_id = Auth::id();
-        // $ans->question_id = $ans->question['id'];
-        // $ans->content = $request->content;
-        // $q->save();
-        // $request->request->add(['user_id'=> Auth::user()->id ]);
-        // $request->request->add(['question_id'=> $q->id]);
-        $data = $request->all();
-        // $q = new Question;
-        // $q->save();
-
-        Answer::create($data);
-        return redirect()->back();
+        //
     }
 
     /**

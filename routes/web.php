@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('questions', 'QuestionController');
-Route::get('/answer/create', 'AnswerController@create')->name('answer.create');
-Route::post('/answer/{id}/store', 'AnswerController@store');
+Route::resource('questions', 'QuestionController')->middleware('auth');
+// Route::get('/questions', 'LikesController@index');
+Route::get('/answer/create', 'AnswerController@create')->name('answer.create')->middleware('auth');
+Route::post('/answer/{id}/store', 'AnswerController@store')->middleware('auth');

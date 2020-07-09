@@ -26,4 +26,9 @@ class Question extends Model
     {
         return $this->hasMany(CommentQuestion::class,'question_id','id');
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class,'question_id','id');
+    }
 }
