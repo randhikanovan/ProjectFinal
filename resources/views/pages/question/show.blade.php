@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
 <div class="container">
@@ -11,10 +11,13 @@
                 <div class="card-header">Question {{ $item->title }} by {{ $item->user->name }}</div>
                 <div class="card-body">
                     <h3>Content</h3>
-                    <p>{{ $item->content }}</p>
-                    <h5>Tags</h5>
+                    <p>{!! $item->content !!}</p>
+                    <h5><small>Tags</small></h5>
                     <p>
                         <button class="btn btn-success btn-sm">{{ $item->tags }}</button>
+                    </p>
+                    <p>
+                        {{ $item->created_at->diffforhumans() }}
                     </p>
                     <a href=""><i class="fa fa-thumbs-up fa-lg"></i></a>
                     <a href=""><i class="fa fa-thumbs-down fa-lg ml-5"></i></a><br>
@@ -26,7 +29,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <a href=""> Create Comment</a>
+                                <a href="{{ route('comments.create') }}"> Create Comment</a>
                                 <br>
                                 <h5 class="text-center">Comments</h5>
                             </tr>

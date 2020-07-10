@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
 <div class="container">
@@ -16,7 +16,7 @@
 
                     {{ __('You are logged in!') }} <br>
 
-                    <a href="{{ route('questions.index') }}" class="btn btn-primary"> Question</a>
+                    {{-- <a href="{{ route('questions.index') }}" class="btn btn-primary"> Question</a> --}}
                 </div>
             </div>
         </div>
